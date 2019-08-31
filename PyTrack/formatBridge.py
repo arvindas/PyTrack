@@ -124,7 +124,9 @@ def toBase(et_type, filename, stim_list=None, start='START', stop=None, eye='B')
         del(temp_dict)
 
         i += 1
+        print("Progress: %.2f" % ((i*100)/len(data)), end="\r")
 
+    print()
     return df
 
 
@@ -264,6 +266,8 @@ def generateCompatibleFormat(exp_path, device, stim_list_mode="NA", start='START
         'SQL' (default) reading method is faster but will need extra space. This affects the internal functioning of he framework and the user can leave it as is.
 
     """
+
+    exp_path = exp_path.replace("\\", "/")
 
     if os.path.isdir(exp_path):
 
